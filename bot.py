@@ -212,6 +212,7 @@ flag_deletion_guild_id = 852786013934714890
 flag_deletion_channel_id = 852786136492671036
 
 async def send_flag(guild_id, channel_id):
+    print('sending flag')
     guild = client.get_guild(guild_id)
     channel = guild.get_channel(channel_id)
 
@@ -227,7 +228,7 @@ async def on_ready():
     scheduler.add_job(
         send_flag,
         "interval",
-        minutes=30,
+        minutes=15,
         args=[flag_deletion_guild_id, flag_deletion_channel_id],
     )
 
